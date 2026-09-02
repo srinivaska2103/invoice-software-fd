@@ -38,7 +38,7 @@ const navItems = [
 ];
 
 export const Sidebar = ({ isOpen, isCollapsed, toggleCollapse, closeMobileSidebar }) => {
-  const { user } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const pathname = usePathname();
 
   // Close mobile sidebar on Escape key & handle body scroll locking
@@ -258,7 +258,7 @@ export const Sidebar = ({ isOpen, isCollapsed, toggleCollapse, closeMobileSideba
         {/* Footer User Profile & Logout */}
         <div className="p-3 border-t border-slate-100/80 space-y-2">
           <div className={`flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-gradient-to-r from-slate-50 via-indigo-50/30 to-slate-50 border border-slate-200/80 shadow-2xs ${
-            isCollapsed ? 'lg:justify-center lg:p-1.5' : ''
+            isCollapsed ? 'lg:flex-col lg:justify-center lg:p-2' : ''
           }`}>
             <div className="flex items-center gap-2.5 min-w-0">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-violet-700 text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs shadow-indigo-500/20">
@@ -278,19 +278,17 @@ export const Sidebar = ({ isOpen, isCollapsed, toggleCollapse, closeMobileSideba
               )}
             </div>
 
-            {!isCollapsed && (
-              <button
-                type="button"
-                onClick={() => {
-                  logout();
-                  window.location.href = '/login';
-                }}
-                className="p-1.5 rounded-xl text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition cursor-pointer shrink-0"
-                title="Log out"
-              >
-                <LogOut className="w-4 h-4" />
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => {
+                logout();
+                window.location.href = '/login';
+              }}
+              className="p-1.5 rounded-xl text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition cursor-pointer shrink-0"
+              title="Log out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </aside>

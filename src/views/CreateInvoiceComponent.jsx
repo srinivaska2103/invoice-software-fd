@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Plus, Trash2, ArrowLeft, Receipt, UserCheck, Package, Truck, Sparkles, FileText, CheckCircle, Phone } from 'lucide-react';
+import { Plus, Trash2, ArrowLeft, IndianRupee, UserCheck, Package, Truck, Sparkles, FileText, CheckCircle, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { customerApi, productApi, invoiceApi, agentApi, transportApi } from '../services/api';
 import { Button, Input, Select, Card, Badge } from '../components/common/UIComponents';
@@ -610,7 +610,9 @@ export function CreateInvoiceComponent() {
 
           <div className="lg:col-span-5 bg-white/95 backdrop-blur-md p-6 rounded-3xl border border-slate-200/90 shadow-xl shadow-indigo-950/5 space-y-4">
             <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-              <Receipt className="w-5 h-5 text-indigo-600" />
+              <div className="p-1 rounded-lg bg-indigo-50 border border-indigo-100/80 text-indigo-600 shrink-0">
+                <IndianRupee className="w-4 h-4 stroke-[2.5]" />
+              </div>
               <h3 className="text-base font-extrabold text-slate-800 tracking-tight">Payment Summary</h3>
             </div>
 
